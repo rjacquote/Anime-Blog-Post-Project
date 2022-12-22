@@ -1,0 +1,97 @@
+.username {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(75, 5, 95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(189, 55, 227);;
+    width: 25%;
+    margin-left: 10%;
+}
+
+.postBtn {
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    color: rgb(238, 250, 255);
+    background-color: rgb(78, 31, 85);
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 1%;
+    outline: 5px rgb(194, 49, 213) solid;
+}
+
+.profile {
+    column-count: 4;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: -moz-linear-gradient(90deg, rgba(248,154,235,1) 0%, rgba(248,154,235,1) 41%, rgba(60,72,91,1) 47%, rgba(60,72,91,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(248,154,235,1) 0%, rgba(248,154,235,1) 41%, rgba(60,72,91,1) 47%, rgba(60,72,91,1) 100%);
+    background: -o-linear-gradient(90deg, rgba(248,154,235,1) 0%, rgba(248,154,235,1) 41%, rgba(60,72,91,1) 47%, rgba(60,72,91,1) 100%);
+    background: -ms-linear-gradient(90deg, rgba(248,154,235,1) 0%, rgba(248,154,235,1) 41%, rgba(60,72,91,1) 47%, rgba(60,72,91,1) 100%);
+    background: linear-gradient(0deg, rgba(248,154,235,1) 0%, rgba(248,154,235,1) 41%, rgba(60,72,91,1) 47%, rgba(60,72,91,1) 100%);
+    width: 200px;
+    outline: 10px rgb(119, 14, 119) solid;
+    border-radius: 1%;
+}
+
+.profilePicBtn {
+    background: transparent;
+    border: none !important;
+    display: block;
+    margin-left: 20px;
+}
+
+.profilePicture {
+
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 50%;
+    outline: 5px rgb(175, 208, 235) solid;
+
+}
+
+.profileBtns {
+    align-items: flex-end;
+    padding-top: 200px;
+    width: 100px;
+
+}
+
+.logBtn {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    color: rgb(238, 250, 255);
+    background-color: rgb(78, 31, 85);
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 1%;
+    outline: 5px rgb(175, 208, 235) solid;
+}
+
+.profilePost{
+    margin-left: 10%;
+}
+
+.postBox{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    min-height:300px;
+    outline: 10px rgb(128, 208, 228) solid;
+    border-radius: 1%;
+}
+/* body{background: -moz-linear-gradient(45deg, rgba(57,25,122,1) 0%, rgba(128,220,221,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(57,25,122,1) 0%, rgba(128,220,221,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(57,25,122,1) 0%, rgba(128,220,221,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(57,25,122,1) 0%, rgba(128,220,221,1) 100%);
+    background: linear-gradient(45deg, rgba(57,25,122,1) 0%, rgba(128,220,221,1) 100%);
+height: 1000px;
+} */
+body {
+    background-image: linear-gradient(rgba(.5, .5, .5, .5), rgba(0.5, 0.5, 0.5, 0.5)), url(https://wallpaperaccess.com/full/2137804.jpg);
+}
