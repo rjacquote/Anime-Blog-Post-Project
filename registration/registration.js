@@ -4,13 +4,12 @@ let password = document.getElementById('password');
 let confirmPassword = document.getElementById('confirmPassword');
 let submitBtn = document.getElementById('submitBtn');
 
-
-
+ 
 function getRegInfo() {
     if (!(fullName.value) || !(userName.value) || !(password.value) || !(confirmPassword.value)) {
         alert('Error. Complete form please');
     } else {
-        
+
     }
 };
 
