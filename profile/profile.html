@@ -14,24 +14,23 @@
     if (isLoggedIn() === false) window.location.replace("/");
 </script> -->
 <body>
-    
   
     <div class="profile">
 <!-- Top right corner stuff -->
         <button class="profilePicBtn"><img src="proflie-temp.png" class="profilePicture"></button>
         <div class="profileBtns">
-        <button class="logBtn">Logout</button>
-        <button class="logBtn">View Posts</button>
+        <button class="logBtn btnHighlight">Logout</button>
+        <button class="logBtn btnHighlight" onclick="window.location.href='https://regularshow.fandom.com/wiki/Muscle_Man'">View Posts</button>
         </div>
     </div>      
-    <h1 class="username">Slagathor</h1>
+    <h1 class="username" id="username">[Put Username Here]</h1>
     <div class="profilePost">
         <!-- main post area -->
     <section>
         <form>
-            <h2>Post Here</h2>
-            <textarea id="postBox" name="postBox" class="postBox" rows="4" cols="50">The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.</textarea>
-            <button class="postBtn">Post</button>
+            <h2>Create a Post:</h2>
+            <textarea id="postBox" name="postBox" class="postBox" rows="4" cols="50"></textarea>
+            <button class="postBtn btnHighlight" id="postBtn" type="button">Post</button>
         </form>
     </section>
     </div>
@@ -39,5 +38,6 @@
 
 
     </footer>
+    <script src="profile.js"></script>
 </body>
 </html>
