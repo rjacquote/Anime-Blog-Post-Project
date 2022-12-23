@@ -31,7 +31,7 @@ form.onsubmit = function getRegInfo(evt) {
         })
         .then(response => response.json())
         .catch(err => console.log(err));
-        //location.href="../index.html";
+        location.href="../index.html";
     }
 
 }

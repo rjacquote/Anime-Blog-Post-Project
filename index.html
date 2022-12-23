@@ -42,6 +42,7 @@
             </div>
 
             <button id="loginButton" type="submit">Login</button>
+            <button id="signUpButton" type="button" onclick=registrationPage()>Sign-Up</button>
         </form>
 
     </main>
@@ -53,5 +54,12 @@
     
     <!-- Page-specific code -->
     <script src="landing.js"></script>
+    <script>
+        let loginButton = document.querySelector('#loginButton');
+        let signUpButton = document.querySelector('#signUpButton');
+        function registrationPage(){
+            location.href="registration/registration.html";
+        }
+    </script>
 </body>
 </html>
