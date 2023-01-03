@@ -5,78 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    <style>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     
-        body {
-            background-image: linear-gradient(rgba(.5, .5, .5, .5), rgba(0.5, 0.5, 0.5, 0.5)), url(https://wallpaperaccess.com/full/2137804.jpg);
-        }
-        header {
-            background-color:rgba(255, 17, 41, 0.316) ;
-            color: aliceblue;
-            text-align: center;
-            padding: 12px 12px;
-            margin: 12px 12px 12px 12px;
-            border-radius: 10px;
-            font-size: 20px;
-        }
-       
-        main {
-            background: rgba(255, 17, 41, 0.316);
-            width: 460px;
-            position: absolute; top: 25%; left: 50%;
-            transform: translate(-50%);
-            padding: 25px 13px 35px 35px;
-            border-radius: 20px;
-            text-align: center;
-        }
-        
-        input {
-            width: 70%;
-            padding: 13px;
-            border-bottom: 5px solid rgb(120, 182, 28);
-            border-radius: 25px;
-            opacity: 80%;
-            letter-spacing: 1px;
-            font-size: large;
-        }
-
-        input[type=submit]:hover {
-            background: rgb(120, 182, 28);
-            color: aliceblue;
-        }
-
-        input[type=submit] {
-            width: 100px;
-        }
-    </style>
+   <link rel="stylesheet" href="registration.css">
 </head>
 <body>
    
-   <header>
-    <h1>Registration Page</h1>
-   </header>
+<header>
+    <h1>AnimeBlog</h1>
+</header>
+    
+<section>
+    <h2>Please fill out the registration form to become a member</h2>
+</section>
+        
+<main class="center">
+    <h3 style="color: brown; font-size: 25px;">Sign Up</h3>
+        
+<form method="post">
+    
+    <!-- full name input -->
+        <div class="txtField">
+            <input type="text" minlength="3" id="fullName" required>
+            <span></span>
+            <label>Full Name <i class="uil uil-user" style="color:black;"></i> </label>
+        </div>
+        
+    <!-- username input -->
+        <div class="txtField">
+            <input type="text" minlength="3" id="username" required>
+            <span></span>
+            <label>Username <i class="uil uil-user" style="color:black;"></i> </label>
+        </div>
+    
+    <!-- password input -->
+        <div class="txtField">
+            <input type="password" minlength="3" id="password" required>
+            <span></span>
+            <label>Password <i class="uil uil-lock" style="color:black; position: absolute; top: 50%; left: 87px; transform: translateY(-50%);"></i> </label>
+        </div>
+        
+    <!-- confirm password input -->
+        <div class="txtField">
+            <input type="password" minlength="6" id="confirmPassword" required>
+            <span></span>
+            <label> Confirm Password <i class="uil uil-lock" style="color:black; position: absolute; top: 50%; left: 160px; transform: translateY(-50%);"></i> <label>
+        </div>
+    
+    <!-- submit button -->
+        <div>
+            <input type="submit" value="Submit" id="submitBtn">
+        </div>
 
-   <main>
-    <fieldset style="width: 400px; border-color: rgb(120, 182, 28); border-radius: 15px; border-width: 3px;">
-    <legend style="font-size: 25px; color: aliceblue;">Please fill out the Registration Form </legend>
-        <form style="margin-top: 10px;" class="regForm">
-            <label for="" style= "color: aliceblue; font-size: 23px;">Full Name</label><br>
-            <input type="text" style="margin-bottom: 10px;" id="fullName" placeholder="Full Name" required><br>
-            
-            <label for="" style= "color: aliceblue; font-size: 23px;">Username</label><br>
-            <input type="text" style="margin-bottom: 10px;" id="username" placeholder="Username" required><br>
-            
-            <label for="" style= "color: aliceblue; font-size: 23px;">Password</label><br>
-            <input type="password" style="margin-bottom: 10px;" id="password" placeholder="Password" required><br>
-            
-            <label for="" style= "color: aliceblue; font-size: 23px; ">Confirm Password</label><br>
-            <input type="password" style="margin-bottom: 10px;" id="confirmPassword" placeholder="Confirm Password" required><br>
-            
-            <input type="submit" style="margin-bottom: 10px;" id="submitBtn"></input>
-        </form>
-    </fieldset>
-   </main>
-
+</form>
+    
+</main>
+    
   
 
 </body>

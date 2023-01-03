@@ -1,1 +1,132 @@
 /* Landing Page CSS */
+body {
+    background-image: linear-gradient(rgba(.5, .5, .5, .5), rgba(0.5, 0.5, 0.5, 0.5)), url(https://wallpaperaccess.com/full/2137804.jpg);
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;}
+header{
+    font-size: x-large;
+    text-align: center;
+    background-color: brown;
+    opacity: 87%;
+    border-radius: 15px;
+    color: aliceblue;
+   
+    margin: 25px 25px 25px 25px;
+    padding: 1px;}
+
+section{
+    float: left;
+    position: relative; left: 175px; top: 5px;
+    background-color:  antiquewhite;
+    opacity: 87%;
+    padding: 15px 25px 15px 25px;
+    width: 450px;
+    border: 5px solid brown;
+    border-radius: 25px;
+    margin: 15px 15px 15px 15px;
+    text-align: center;
+    font-size: 18px;
+    color: brown;}
+
+.center {
+    float: right;
+    position: relative; right: 150px;top: 45px;
+    margin: 15px 15px 15px 15px;
+    padding: 10px 10px 10px 10px;
+    width: 450px;
+    background: antiquewhite;
+    opacity: 87%;
+    border-radius: 25px;}
+
+.center h3 {
+   text-align: center; 
+   padding: 5px 5px 20px 5px;
+   border-bottom: 5px solid brown;}
+
+.center form {
+    padding: 0 40px;
+    box-sizing: border-box;}
+
+form .txtField {
+position: relative;
+border-bottom: 3px solid brown;
+margin: 30px 0;}
+
+.txtField input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 18px;
+    border: none;
+    background: none;
+    outline: none;}
+
+.txtField label {
+    position: absolute; top: 50%; left: 5px;
+    color: brown;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+    transition: .8s;}
+
+.txtField span::before{
+    content: '';
+    position: absolute; top: 40px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: green;
+    transition: .8s;}
+
+.txtField input:focus ~ label,
+.txtField input:valid ~ label {
+    top: -5px;
+    color: green;}
+
+.txtField input:focus ~ span::before,
+.txtField input:valid ~ span::before {
+    width: 100%;
+}
+.pass{
+    margin: -5px 0 20px 5px;
+    color: a6a6a6;
+    cursor: pointer;
+}
+.pass:hover{
+    text-decoration: underline;
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 50px;
+    border: 4px solid rgb(111, 13, 13) ;
+    background: brown;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;}
+
+input[type="submit"]:hover{
+    background-color: rgb(111, 13, 13);
+    border-color: rgb(238, 243, 90);
+    transition: .5s;}
+
+.signupLink{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;}
+
+.signupLink a{
+    color: brown;
+    text-decoration: none;}
+
+.signupLink a:hover{
+    text-decoration: underline;}
