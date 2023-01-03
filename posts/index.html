@@ -20,6 +20,7 @@
     <script src="/auth.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
+        console.log()
     </script>
 </head>
 <body>
@@ -29,7 +30,9 @@
         <button type="button" onclick=logout()>Logout</button>
     </header>
 
-    <main></main>
+    <main>
+        <table id="content"></table>
+    </main>
 
     <footer></footer>
 
