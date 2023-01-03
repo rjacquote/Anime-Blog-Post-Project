@@ -30,8 +30,9 @@ form.onsubmit = function getRegInfo(evt) {
             headers: { "Content-type": "application/json; charset= UTF-8" }
         })
         .then(response => response.json())
+        .then(response => {location.href = "../index.html"})
         .catch(err => console.log(err));
-        location.href="../index.html";
+        // location.href="../index.html";
     }
 
 }
