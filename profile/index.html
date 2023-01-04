@@ -4,25 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title id="username">Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <link rel="stylesheet" href="profile.css">
 </head>
 <script src="../auth.js"></script>
 <script>
-    if (isLoggedIn() === false) window.location.replace("../");
+    if (isLoggedIn() === false) window.location.replace("../index.html");
 </script>
 <body>
   
-    <div class="profile">
-<!-- Top right corner stuff -->
-        <button class="profilePicBtn" onclick="window.location.href='profile.html'"><img src="proflie-temp.png" class="profilePicture"></button>
-        <div class="profileBtns">
-        <button class="logBtn btnHighlight" onclick="window.location.href='https://regularshow.fandom.com/wiki/Muscle_Man'">Logout</button>
-        <button class="logBtn btnHighlight" onclick="window.location.href='https://regularshow.fandom.com/wiki/Muscle_Man'">View Posts</button>
-        </div>
-    </div>      
+
     <h1 class="username" id="username">[Put Username Here]</h1>
     <div class="profilePost">
         <!-- main post area -->
@@ -32,7 +25,15 @@
             <textarea id="postBox" name="postBox" class="postBox" rows="4" cols="50"></textarea>
             <button class="postBtn btnHighlight" id="postBtn" type="button">Post</button>
         </form>
-    </section>
+    </section>    
+    <div class="profile">
+<!-- Top right corner stuff -->
+        <button class="profilePicBtn" onclick="window.location.href='../profile/index.html'"><img src="proflie-temp.png" class="profilePicture"></button>
+        <div class="profileBtns">
+        <button class="logBtn btnHighlight" onclick="logout()">Logout</button>
+        <button class="logBtn btnHighlight" onclick="">View Posts</button>
+        </div>
+    </div>      
     </div>
     <div class="userPosts">
         <h1 class="postHeader">Posts</h1>
