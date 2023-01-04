@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+
+   <link rel="stylesheet" href="registration.css">
+   <script src="auth.js"></script>
+    <script>
+        if (isLoggedIn() === true) window.location.replace("posts/index.html");
+    </script>
+</head>
+<body>
+   
+<header>
+    <h1>animeBlog</h1>
+</header>
+    
+<section>
+    <h2>Please fill out the registration form to become a member</h2>
+</section>
+        
+<main class="center">
+    <h3 style="color: brown; font-size: 25px;">Sign Up</h3>
+        
+<form method="post">
+    
+    <!-- full name input -->
+        <div class="txtField">
+            <input type="text" minlength="3" id="fullName" required>
+            <span></span>
+            <label>Full Name <i class="uil uil-user" style="color:black;"></i> </label>
+        </div>
+        
+    <!-- username input -->
+        <div class="txtField">
+            <input type="text" minlength="3" id="username" required>
+            <span></span>
+            <label>Username <i class="uil uil-user" style="color:black;"></i> </label>
+        </div>
+    
+    <!-- password input -->
+        <div class="txtField">
+            <input type="password" minlength="3" id="password" required>
+            <span></span>
+            <label>Password <i class="uil uil-lock" style="color:black; position: absolute; top: 50%; left: 87px; transform: translateY(-50%);"></i> </label>
+        </div>
+        
+    <!-- confirm password input -->
+        <div class="txtField">
+            <input type="password" minlength="6" id="confirmPassword" required>
+            <span></span>
+            <label> Confirm Password <i class="uil uil-lock" style="color:black; position: absolute; top: 50%; left: 160px; transform: translateY(-50%);"></i> <label>
+        </div>
+    
+    <!-- submit button -->
+        <div>
+            <input type="submit" value="Submit" id="submitBtn">
+        </div>
+
+</form>
+    
+</main>
+<script src="registration.js"></script>
+ 
+
+</body>
+</html>

@@ -20,13 +20,13 @@
     <script src="/auth.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
-    
     </script>
 </head>
 <body>
 
     <header>
         <h1>POSTS PAGE</h1>
+
         <button>Profile</button>
         <button type="button" onclick="logout()">Logout</button>
     </header>
@@ -34,7 +34,6 @@
     <main>
         <form>
             <label for="searchEng">Search</label>
-       
             <select name="searchEng" id="searchEng">
                 <option value="">---Select a User---</option>
             </select>
@@ -45,6 +44,12 @@
             
         </table>
         <table id="content2"></table>
+
+
+        <button type="button" onclick=logout()>Logout</button>
+    </header>
+
+        <table id="content"></table>
 
     </main>
 
