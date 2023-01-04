@@ -12,29 +12,25 @@ let tableEle2 = document.getElementById('content2');
 
 
 
+
 console.log(searchEng)
 
 console.log(loginData.token)
 
 
 
+
+
+
+
 // fetches 
+
     // declaring endpoints 
     let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
-    let likEnd = 'https://microbloglite.herokuapp.com/api/likes';
+    let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
+    let userEnd = 'https://microbloglite.herokuapp.com/api/users'
     function conetentDisplay (){
     fetch(postsEnd,{
-=======
-
-
-console.log(loginData.token)
-
-// event listeners 
-let tableEle = document.getElementById('content');
-
-// fetches 
-    fetch('https://microbloglite.herokuapp.com/api/posts',{
-
         method: 'GET',
         headers: {
             Authorization: `Bearer ${loginData.token}`
@@ -52,10 +48,7 @@ let tableEle = document.getElementById('content');
             console.log(postId)
             
             let likes = data[i].likes.length;
-        }
 
-      
-     
         
 
             tableEle.innerHTML += `
@@ -71,28 +64,30 @@ let tableEle = document.getElementById('content');
             <td>${data[i].text}</td>
             <td>${data[i].createdAt}</td>
 
-            <td >${postId} </td>
+            <td id = "postIds">${postId} </td>
          
             <div>
             <span id="likes">${likes}</span>
-            <button type = "submit" value=${data[i]._id} id="likesBtn" onclick= " incrementLikes()"> Like </button >
+            <button type = "submit" id="likesBtn" value ${postId} onclick= " incrementLikes()"> Like </button >
+
           
             </div>
             <br>
 
             <div>
-            <span id="likes"></span>
+            <span id="ltikes"></span>
             <input type="button" value="Dislike" id="dislikesBtn"  >
             </div>
             <br>
 
             </tr>
+
             </tr>
          
             `;
             // console.log(postId)
   
-   
+            let postIds = document.getElementById('postIds');
          
     }
 
@@ -103,6 +98,13 @@ let tableEle = document.getElementById('content');
    
     }
     conetentDisplay();
+
+
+
+      
+
+    // let letSee = document.getElementById('likesBtn').value = postId;
+    // console.log(letSee)
 
 //  })
 //   I need to put my likes and search in another function (no nesting)!!!!!!
@@ -122,19 +124,21 @@ let tableEle = document.getElementById('content');
     // event listener 
   
     // likes and dislikes
+        //dom nodes
 
+            // let numLikes = document.getElementById('likes');
+            // likes ++;
+            // numLikes.innerText = likes;
+    
     function incrementLikes(){
 
         console.log('yup')
-
-
-        let letSee = document.getElementById('likesBtn').value;
-        console.log(letSee)
-        
-            let numLikes = document.getElementById('likes');
-            likes ++;
-            numLikes.innerText = likes;
-            fetch(`https://microbloglite.herokuapp.com/api/likes`,{
+  
+     
+        console.log( postIds)
+        // let letSee = document.getElementById('likeBtn').value;
+        let letSee = '63b1c37d3c39b6c11b302872'
+            fetch(likeEnd,{
                 method: 'POST',
                 body: JSON.stringify({
                     postId: letSee
@@ -149,60 +153,134 @@ let tableEle = document.getElementById('content');
             .then(response => response.json())
             .then(postsLikes => {
                 console.log(postsLikes)
-        
+            
+              getLikes()
+
             })
        
      
 
-      
+        
+    }
+    function getLikes (){
+        let numLikes = document.getElementById('likes');
+        fetch(postsEnd,{
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${loginData.token}`
+            }
+        })
+        .then(response => response.json())
+        .then(conLikes => {
+            console.log(conLikes)
+         
+            conLikes.filter((kk) =>{
+                console.log(kk.likes)
+                let lenLikes = kk.likes.length;
+                let addLikes = Number(lenLikes+1);
+                console.log(addLikes)
+                numLikes.appendChild(addLikes)
+            })
+       
+        })
     }
 
  // search 
 
-//  function searchDropdown(){
+ function searchDropdown(){
+    fetch(userEnd,{
+        method: 'GET',
+        headers:{
+            Authorization: `Bearer ${loginData.token}`
+        }
+    })
+    .then(response => response.json())
+    .then( users =>{
+        console.log(users)
    
-//  }
+        for(let i = 0; i< users.length ; i++){
+        let opt = new Option (users[i].username);
+        searchEng.appendChild(opt)
+        }
+        searchEng.addEventListener('change', searchTask)
+    })
 
-//  function searchTask () {
+ }
+searchDropdown()
 
-//         console.log('it works')
-//         console.log(searchEng.value)
+ function searchTask () {
 
-//             tableEle.replaceChildren();
+        console.log('it works')
+        console.log(searchEng.value)
+
+            tableEle.replaceChildren();
        
-//             fetch(`https://microbloglite.herokuapp.com/api/posts/?${username}`,{
-//                 method: 'GET',
-//                 headers:{
-//                     Authorization: `Bearer ${loginData.token}`
-//                 }
-//             })
-//             .then(response => response.json())
-//             .then(posts =>{
-//                 console.log(posts)
-             
-//                 tableEle2.innerHTML += `
-//                 <tr>
-//                 <th>UserName</th>
-//                 <th>Posts</th>
-//                 <th>Time</th>
-    
-//                 </tr>
-//                 <tr>
-//                 <td>${data[i].username}</td>
-//                 <td>${data[i].text}</td>
-//                 <td>${data[i].createdAt}</td>
-               
-           
-//                 `;
-//             })
+            fetch(`https://microbloglite.herokuapp.com/api/posts/?username=${searchEng.value}`,{
+                method: 'GET',
+                headers:{
+                    Authorization: `Bearer ${loginData.token}`
+                }
+            })
+            .then(response => response.json())
+            .then(posts =>{
+                console.log(posts.length)
+                //display no post when if the user has no post 
+                if(!posts.length ){
+                    console.log('hey')
+                    tableEle.replaceChildren()
+                    tableEle.innerHTML = '<h3> No Post</h3>'
+                }
+                else {
+                    tableEle.replaceChildren()
+                    posts.filter((post)=>{
+                                
+                        
+                            console.log(post)
+            
+                                console.log(post)
+                                    
+                                
+                                tableEle.innerHTML += 
+                                `             
+                                <tr>
+                                <th>UserName</th>
+                                <th>Posts</th>
+                                <th>Time</th>
+                    
+                                </tr>
+                                <tr>
+                                <td>${post.username}</td>
+                                <td>${post.text}</td>
+                                <td>${post.createdAt}</td>
+                            
+                                <div>
+                                <span id="likes">${post.likes.length}</span>
+                                <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
+                            
+                                </div>
+                                <br>
+                    
+                                <div>
+                                <span id="likes"></span>
+                                <input type="button" value="Dislike" id="dislikesBtn"  >
+                                </div>
+                                <br>
+                    
+                                `;
+                                
+                    
+        
+                
+                })
+        }
+              
+                 
+                    
+
+            
+    })
             
     
     
-// }
-
-            </tr>
-         
-            `;
-        }
-    })
+}
 
