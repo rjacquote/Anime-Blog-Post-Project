@@ -211,7 +211,7 @@ searchDropdown()
                         console.log(post)
                             
                         
-                        tableEle2.innerHTML += 
+                        tableEle.innerHTML += 
                         `             
                         <tr>
                         <th>UserName</th>
@@ -241,8 +241,9 @@ searchDropdown()
                         
             }
             //display no post when if the user has no post 
-          else if (post.text == "") {
-             tableEle2.innerHTML = `<h3>No Post</h3>`
+          else  {
+            tableEle.replaceChildren()
+             tableEle.innerHTML = `<h3>No Post</h3>`
           }
 
             })
