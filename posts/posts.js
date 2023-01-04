@@ -271,15 +271,18 @@ searchDropdown()
             .then(posts =>{
                 console.log(posts)
                 
+           
             posts.filter((post)=>{
                           
                 if(searchEng.value === post.username){
-                    console.log(post)
-       
-                        console.log(post)
+                  console.log(post)  
+            
+                        // console.log(post)
                             
                         
-                        tableEle.innerHTML += 
+                       
+                       
+                     tableEle.innerHTML += 
                         `             
                         <tr>
                         <th>UserName</th>
@@ -306,15 +309,19 @@ searchDropdown()
                         <br>
             
                         `;
-                        
-            }
+        
+                    }
+            });  
+         
             //display no post when if the user has no post 
-          else  {
-            tableEle.replaceChildren()
-             tableEle.innerHTML = `<h3>No Post</h3>`
-          }
+        //   else  {
+        //        tableEle.innerHTML = `<h3>No Post</h3>`
+        //      tableEle.innerHTML = `<h3>No Post</h3>`
+        //   }
+       
 
-            })
+
+        
               
                  
                     
@@ -323,6 +330,5 @@ searchDropdown()
             })
             
     
-    
+         
 }
-
