@@ -58,7 +58,7 @@ console.log(loginData.token)
          
             <div>
             <span id="likes">${likes}</span>
-            <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
+            <button type = "submit" id="likesBtn" value ${postId} onclick= " incrementLikes()"> Like </button >
           
             </div>
             <br>
@@ -108,7 +108,7 @@ console.log(loginData.token)
   
     // likes and dislikes
         //dom nodes
-            let numLikes = document.getElementById('likes');
+            
             
           
     function incrementLikes(){
@@ -117,6 +117,8 @@ console.log(loginData.token)
   
         let postIds = document.getElementById('postIds');
         console.log( postIds)
+        // let letSee = document.getElementById('likeBtn').value;
+        let letSee = '63b1c06b3c39b6c11b3027fa'
             fetch(likeEnd,{
                 method: 'POST',
                 body: JSON.stringify({
@@ -150,11 +152,15 @@ console.log(loginData.token)
         })
         .then(response => response.json())
         .then(conLikes => {
-            console.log(conLikes)
-            let newLikes = conLikes.likes.length;
-            newLikes ++;
+            console.log(conLikes.likes)
+            let numLikes = document.getElementById('likes');
+            for (let i = 0; i < conLikes.length; i++) {
           
-             numLikes.innerText = newLikes;
+                let newLikes = conLikes[i].likes.length;
+                newLikes ++;
+                 numLikes.innerHTML += newLikes;
+            }
+          
         })
     }
 
@@ -175,9 +181,10 @@ console.log(loginData.token)
         let opt = new Option (users[i].username);
         searchEng.appendChild(opt)
         }
+        searchEng.addEventListener('change', searchTask)
     })
  }
-
+searchDropdown()
 
  function searchTask () {
 
@@ -186,7 +193,7 @@ console.log(loginData.token)
 
             tableEle.replaceChildren();
        
-            fetch(`https://microbloglite.herokuapp.com/api/posts/?${username}`,{
+            fetch(`https://microbloglite.herokuapp.com/api/posts/?${searchEng.value}`,{
                 method: 'GET',
                 headers:{
                     Authorization: `Bearer ${loginData.token}`
@@ -195,21 +202,55 @@ console.log(loginData.token)
             .then(response => response.json())
             .then(posts =>{
                 console.log(posts)
-             
-                tableEle2.innerHTML += `
-                <tr>
-                <th>UserName</th>
-                <th>Posts</th>
-                <th>Time</th>
-    
-                </tr>
-                <tr>
-                <td>${data[i].username}</td>
-                <td>${data[i].text}</td>
-                <td>${data[i].createdAt}</td>
-               
-           
-                `;
+                
+            posts.filter((post)=>{
+                          
+                if(searchEng.value === post.username){
+                    console.log(post)
+       
+                        console.log(post)
+                            
+                        
+                        tableEle2.innerHTML += 
+                        `             
+                        <tr>
+                        <th>UserName</th>
+                        <th>Posts</th>
+                        <th>Time</th>
+            
+                        </tr>
+                        <tr>
+                        <td>${post.username}</td>
+                        <td>${post.text}</td>
+                        <td>${post.createdAt}</td>
+                       
+                        <div>
+                        <span id="likes">${post.likes.length}</span>
+                        <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
+                      
+                        </div>
+                        <br>
+            
+                        <div>
+                        <span id="likes"></span>
+                        <input type="button" value="Dislike" id="dislikesBtn"  >
+                        </div>
+                        <br>
+            
+                        `;
+                        
+            }
+            //display no post when if the user has no post 
+          else if (post.text == "") {
+             tableEle2.innerHTML = `<h3>No Post</h3>`
+          }
+
+            })
+              
+                 
+                    
+
+            
             })
             
     
