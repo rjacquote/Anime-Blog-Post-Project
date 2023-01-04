@@ -18,7 +18,7 @@
     <!-- Run BEFORE page is finished loading (before window.onload): -->
     <script src="auth.js"></script>
     <script>
-        if (isLoggedIn() === true) window.location.replace("./profile/index.html");
+        if (isLoggedIn() === true) window.location.replace("posts/index.html");
     </script>
 </head>
 <body>
@@ -40,7 +40,10 @@
                 <input type="password" id="password" minlength="6" class="loginInput">
             </div>
 
-            <button id="loginButton" type="submit" class="btnHighlight loginBtn">Log in</button>
+
+            <button id="loginButton" type="submit">Login</button>
+            <button id="signUpButton" type="button" onclick=registrationPage()>Sign-Up</button>
+
         </form>
 </div>
     </main>
@@ -52,5 +55,13 @@
     
     <!-- Page-specific code -->
     <script src="landing.js"></script>
+
+    <script>
+        let signUpButton = document.querySelector('#signUpButton');
+        function registrationPage(){
+            location.href="registration/registration.html";
+        }
+    </script>
+
 </body>
 </html>
