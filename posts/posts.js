@@ -19,15 +19,7 @@ console.log(loginData.token)
 
 
 
-// fetches 
-    // declaring endpoints 
-    let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
-    let likEnd = 'https://microbloglite.herokuapp.com/api/likes';
-    function conetentDisplay (){
-    fetch(postsEnd,{
 
-
-console.log(loginData.token)
 
 
 
@@ -57,7 +49,7 @@ console.log(loginData.token)
             
             let likes = data[i].likes.length;
 
-        }
+        
 
             tableEle.innerHTML += `
          
@@ -160,66 +152,7 @@ console.log(loginData.token)
       
     }
 
- // search 
 
-//  function searchDropdown(){
-   
-//  }
-
-//  function searchTask () {
-
-//         console.log('it works')
-//         console.log(searchEng.value)
-
-//             tableEle.replaceChildren();
-       
-//             fetch(`https://microbloglite.herokuapp.com/api/posts/?${username}`,{
-//                 method: 'GET',
-//                 headers:{
-//                     Authorization: `Bearer ${loginData.token}`
-//                 }
-//             })
-//             .then(response => response.json())
-//             .then(posts =>{
-//                 console.log(posts)
-             
-//                 tableEle2.innerHTML += `
-//                 <tr>
-//                 <th>UserName</th>
-//                 <th>Posts</th>
-//                 <th>Time</th>
-    
-//                 </tr>
-//                 <tr>
-//                 <td>${data[i].username}</td>
-//                 <td>${data[i].text}</td>
-//                 <td>${data[i].createdAt}</td>
-               
-           
-//                 `;
-//             })
-            
-    
-    
-// }
-
-
-            </tr>
-         
-            `;
-            // console.log(postId)
-  
-   
-         
-    }
-
-
-    
-   
- })
-   
-    }
-    conetentDisplay();
     // let letSee = document.getElementById('likesBtn').value = postId;
     // console.log(letSee)
 
