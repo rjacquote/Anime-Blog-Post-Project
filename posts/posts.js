@@ -261,7 +261,7 @@ searchDropdown()
 
             tableEle.replaceChildren();
        
-            fetch(`https://microbloglite.herokuapp.com/api/posts/?${searchEng.value}`,{
+            fetch(`https://microbloglite.herokuapp.com/api/posts/?username=${searchEng.value}`,{
                 method: 'GET',
                 headers:{
                     Authorization: `Bearer ${loginData.token}`
@@ -269,58 +269,62 @@ searchDropdown()
             })
             .then(response => response.json())
             .then(posts =>{
-                console.log(posts)
-                
-            posts.filter((post)=>{
-                          
-                if(searchEng.value === post.username){
-                    console.log(post)
-       
-                        console.log(post)
+                console.log(posts.length)
+                //display no post when if the user has no post 
+                if(!posts.length ){
+                    console.log('hey')
+                    tableEle.replaceChildren()
+                    tableEle.innerHTML = '<h3> No Post</h3>'
+                }
+                else {
+                    tableEle.replaceChildren()
+                    posts.filter((post)=>{
+                                
+                        
+                            console.log(post)
+            
+                                console.log(post)
+                                    
+                                
+                                tableEle.innerHTML += 
+                                `             
+                                <tr>
+                                <th>UserName</th>
+                                <th>Posts</th>
+                                <th>Time</th>
+                    
+                                </tr>
+                                <tr>
+                                <td>${post.username}</td>
+                                <td>${post.text}</td>
+                                <td>${post.createdAt}</td>
                             
-                        
-                        tableEle.innerHTML += 
-                        `             
-                        <tr>
-                        <th>UserName</th>
-                        <th>Posts</th>
-                        <th>Time</th>
-            
-                        </tr>
-                        <tr>
-                        <td>${post.username}</td>
-                        <td>${post.text}</td>
-                        <td>${post.createdAt}</td>
-                       
-                        <div>
-                        <span id="likes">${post.likes.length}</span>
-                        <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
-                      
-                        </div>
-                        <br>
-            
-                        <div>
-                        <span id="likes"></span>
-                        <input type="button" value="Dislike" id="dislikesBtn"  >
-                        </div>
-                        <br>
-            
-                        `;
-                        
-            }
-            //display no post when if the user has no post 
-          else  {
-            tableEle.replaceChildren()
-             tableEle.innerHTML = `<h3>No Post</h3>`
-          }
-
-            })
+                                <div>
+                                <span id="likes">${post.likes.length}</span>
+                                <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
+                            
+                                </div>
+                                <br>
+                    
+                                <div>
+                                <span id="likes"></span>
+                                <input type="button" value="Dislike" id="dislikesBtn"  >
+                                </div>
+                                <br>
+                    
+                                `;
+                                
+                    
+        
+                
+                })
+        }
               
                  
                     
 
             
-            })
+    })
             
     
     
