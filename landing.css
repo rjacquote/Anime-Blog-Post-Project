@@ -1,1 +1,105 @@
 /* Landing Page CSS */
+/* .titleText {
+    font-family:'Times New Roman', Times, serif ;
+    color: rgb(241, 156, 203);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  #11020a;
+    text-align: center;
+    box-shadow: 0px 10px 80px 0px rgb(36, 3, 15);
+    animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 2s both;
+    width: 100%;
+}
+
+
+
+
+
+
+body {
+    max-width: 60%;
+    margin-left: 20%;
+    min-height: 750px;
+    background: -moz-linear-gradient(270deg, rgb(60, 10, 30) 0%, rgb(0, 0, 0)0%);
+background: -webkit-linear-gradient(270deg, rgba(60, 10, 30,1) 0%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(270deg, rgba(60, 10, 30,1) 0%, rgba(0, 0, 0, 0.914) 100%);
+background: -ms-linear-gradient(270deg, rgba(60, 10, 30,1) 0%, rgba(0,0,0,0.866) 100%);
+background: linear-gradient(180deg, rgba(60, 10, 30,1) 0%, rgba(0, 0,0, 0.703) 100%);
+box-shadow: 0px 0px 80px 0px rgb(239, 152, 206);
+animation: body 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+html {
+    background-color: black;
+    animation: backgroundshift 5s linear infinite alternate both;
+}
+
+.usernameBox{
+    width: 25%;
+    display: block;
+    position: absolute;
+    right: 37.5%;
+    top: 25%;
+}
+.passwordBox{
+    width: 25%;
+    display: block;
+    position: absolute;
+    left: 37.5%;
+    top: 40%;
+}
+
+.loginLabel{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(239, 152, 206);
+    text-align: center;
+    margin-left: 20%;
+    font-size: 25px;
+}
+.loginButton{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(239, 152, 206);
+    text-align: center;
+    margin-left: 20%;
+    font-size: 25px;
+
+}
+
+
+@keyframes tracking-in-contract {
+    0% {
+      letter-spacing: 1em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+}
+@keyframes body {
+    0% {
+        transform: translateY(00px) scaleY(2.5) scaleX(0.2);
+        transform-origin: 50% 0%;
+        filter: blur(40px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0) scaleY(1) scaleX(1);
+        transform-origin: 50% 50%;
+        filter: blur(0);
+        opacity: 1;
+      }
+  }
+  
+@keyframes backgroundshift {
+    0% {
+      background: #001f25;
+    }
+    100% {
+      background: #1c042b;
+    }
+  } */

@@ -8,9 +8,6 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="./assets/global.css">
-
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./landing.css">
     <title>Login to the Microblog Network!</title>
@@ -24,24 +21,24 @@
 <body>
 
     <header class="titleText">
-        <h1>Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
+        <h1 class="loginText">Welcome to <code>YOUR MICROBLOG NETWORK</code></h1>
     </header>
 
     <main>
 <div class="loginFormIndex">
         <form id="login">
-            <div>
+            <div class="usernameBox">
                 <label for="username" class="loginLabel">Username</label>
                 <input type="text" id="username" minlength="3" class="loginInput">
             </div>
 
-            <div>
+            <div class="passwordBox">
                 <label for="password" class="loginLabel">Password</label>
                 <input type="password" id="password" minlength="6" class="loginInput">
             </div>
 
-
-            <button id="loginButton" type="submit">Login</button>
+            
+            <button id="loginButton" type="submit" class="loginButton">Login</button>
             <button id="signUpButton" type="button" onclick=registrationPage()>Sign-Up</button>
 
         </form>

@@ -1,0 +1,3 @@
+for if we want to add the abillity to change profile images, along with stress testing, so i added 10 images since 10's a good round number. 
+the images are what they are since i dont know what git hub does to copyrighted images, if anything.
+we can delete all but the one being used if needed, which is pfp-3.png.
