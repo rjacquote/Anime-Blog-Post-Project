@@ -20,18 +20,37 @@
     <script src="/auth.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
-        console.log()
     </script>
 </head>
 <body>
 
     <header>
         <h1>POSTS PAGE</h1>
-        <button type="button" onclick=logout()>Logout</button>
+
+        <button>Profile</button>
+        <button type="button" onclick="logout()">Logout</button>
     </header>
 
     <main>
+        <form>
+            <label for="searchEng">Search</label>
+            <select name="searchEng" id="searchEng">
+                <option value="">---Select a User---</option>
+            </select>
+            <input type="button" value="Enter" id="searchBtn">
+        </form>
+        <table id="content">
+               
+            
+        </table>
+        <table id="content2"></table>
+
+
+        <button type="button" onclick=logout()>Logout</button>
+    </header>
+
         <table id="content"></table>
+
     </main>
 
     <footer></footer>
