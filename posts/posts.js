@@ -2,6 +2,7 @@
 
 "use strict";
 // token 
+
 let loginData =JSON.parse(window.localStorage.getItem('login-data'));
 // dom nodes 
 let searchBtn =  document.getElementById('searchBtn');
@@ -23,6 +24,17 @@ console.log(loginData.token)
     let likEnd = 'https://microbloglite.herokuapp.com/api/likes';
     function conetentDisplay (){
     fetch(postsEnd,{
+=======
+
+
+console.log(loginData.token)
+
+// event listeners 
+let tableEle = document.getElementById('content');
+
+// fetches 
+    fetch('https://microbloglite.herokuapp.com/api/posts',{
+
         method: 'GET',
         headers: {
             Authorization: `Bearer ${loginData.token}`
@@ -32,6 +44,7 @@ console.log(loginData.token)
     .then(data =>{
         console.log('it works');
         console.log(data);
+
         //Display Data 
         for (let i = 0; i < data.length; i++) {
             // console.log('hey')
@@ -39,7 +52,12 @@ console.log(loginData.token)
             console.log(postId)
             
             let likes = data[i].likes.length;
-    
+        }
+
+      
+     
+        
+
             tableEle.innerHTML += `
          
             <tr>
@@ -52,6 +70,7 @@ console.log(loginData.token)
             <td>${data[i].username}</td>
             <td>${data[i].text}</td>
             <td>${data[i].createdAt}</td>
+
             <td >${postId} </td>
          
             <div>
@@ -180,3 +199,10 @@ console.log(loginData.token)
     
     
 // }
+
+            </tr>
+         
+            `;
+        }
+    })
+
