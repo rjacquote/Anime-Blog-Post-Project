@@ -1,5 +1,5 @@
 /* Landing Page CSS */
-body {
+body {  
     background-image: linear-gradient(rgba(.5, .5, .5, .5), rgba(0.5, 0.5, 0.5, 0.5)), url(https://wallpaperaccess.com/full/2137804.jpg);
     margin: 0;
     padding: 0;
@@ -8,6 +8,7 @@ body {
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;}
+
 header{
     font-size: x-large;
     text-align: center;
@@ -15,7 +16,6 @@ header{
     opacity: 87%;
     border-radius: 15px;
     color: aliceblue;
-   
     margin: 25px 25px 25px 25px;
     padding: 1px;}
 
@@ -23,7 +23,7 @@ section{
     float: left;
     position: relative; left: 175px; top: 5px;
     background-color:  antiquewhite;
-    opacity: 87%;
+    opacity: 85%;
     padding: 15px 25px 15px 25px;
     width: 450px;
     border: 5px solid brown;
@@ -40,7 +40,7 @@ section{
     padding: 10px 10px 10px 10px;
     width: 450px;
     background: antiquewhite;
-    opacity: 87%;
+    opacity: 85%;
     border-radius: 25px;}
 
 .center h3 {
