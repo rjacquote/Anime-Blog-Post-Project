@@ -1,0 +1,104 @@
+/* profile dropdown */
+.profile {
+    column-count: 4;
+    position: absolute;
+    right: 0%;
+    top: 0;
+    background: url(profile-card-bg.png);
+    width: 200px;
+    outline: 5px rgb(34, 37, 36) double;
+    border-radius: 1%;
+    box-shadow: 0px 0px 30px 0px rgb(0, 0, 0);
+    animation-duration: 5s;
+    animation-name: bouncein2;
+    animation-delay: 3;
+}
+
+.profilePicBtn {
+    background: transparent;
+    border: none !important;
+    display: block;
+    margin-left: 20px;
+}
+
+.profilePicture {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 50%;
+    outline: 4px rgb(43, 26, 10) double;
+    box-shadow: 0px 0px 7px 0px rgb(0, 0, 0);
+    background-color: rgb(46, 46, 46);
+}
+
+.profileBtns {
+    align-items: flex-end;
+    padding-top: 200px;
+    width: 100px;
+
+}
+.logBtn {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    color: rgb(238, 250, 255);
+    background-color: rgb(27, 29, 27);
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 1%;
+    outline: 4px rgb(43, 26, 10) double;
+    box-shadow: 0px 0px 7px 0px rgb(0, 0, 0);
+}
+
+html{
+    background-image: linear-gradient(rgba(.5, .5, .5, .5), rgba(0.5, 0.5, 0.5, 0.5)), url(https://wallpaperaccess.com/full/2137804.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.btnHighlight:hover{
+    color: rgb(142, 242, 255);
+    outline: 4px rgb(255, 255, 255) double;
+    box-shadow: 0px 0px 40px 0px rgb(142, 242, 255), inset 0 0 10px rgb(87, 255, 99);
+    animation: buttonPop 0.2s ease-in-out both;
+}
+.profilePicture:hover{
+    outline: 4px double rgb(255, 255, 255) ;
+    box-shadow: 0px 0px 80px 0px rgb(142, 242, 255),  inset 0 0 20px rgb(255, 255, 255);
+    transform: scale(1.1);
+    animation: buttonPop 0.2s ease-in-out both;
+}
+
+@keyframes bouncein2 {
+
+    0% {
+      transform: translateY(-800px);
+    }
+    10% {
+        transform: translateY(-600px);
+      }
+      70% {
+        transform: translateY(-650px);
+      }
+      80%{
+        transform: translateY(100px);
+      }
+      90%{
+        transform: translateY(-50px);
+      }
+    100% {
+      transform: translateY(0px);
+    }
+}
+@keyframes buttonPop {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+
+}

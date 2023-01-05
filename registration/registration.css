@@ -9,15 +9,19 @@ header {
 }
 section {
     background: brown;
+
     box-shadow: 3px 3px 4px 4px antiquewhite;
+
     color: aliceblue;
     font-size: 17px;
     text-align: center;
     opacity: 85%;
     border-radius: 15px;
+
     width: 565px;
     padding: 3px 3px 3px 5px; 
     position: relative; left: 420px; bottom: 100px;
+
 }
 main {
     background: antiquewhite;
@@ -103,6 +107,7 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background-color: rgb(111, 13, 13);
     border-color: rgb(238, 243, 90);
+
     transition: .5s;}
 
     .signupLink{
@@ -117,3 +122,4 @@ input[type="submit"]:hover{
     
     .signupLink a:hover{
         text-decoration: underline;}
+
