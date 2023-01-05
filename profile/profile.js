@@ -19,10 +19,10 @@ userPost.onclick = function sendPost() {
     }
     else {
 
-        fetch(postsEnd, options, {
+        fetch(postsEnd, {
             method: "POST",
             headers: { "Authorization":`Bearer ${loginData.token}`,"Content-type": "application/json" },
-            body: JSON.stringify({ text : `${postText}`})
+            body: JSON.stringify({text:postText})
         })
             .then(response => response.json())
             .then(data => console.log(data))
