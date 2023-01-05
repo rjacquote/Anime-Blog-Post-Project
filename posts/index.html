@@ -20,7 +20,6 @@
     <script src="/auth.js"></script>
     <script>
         if (isLoggedIn() === false) window.location.replace("/");
-        console.log()
     </script>
 </head>
 <body>
@@ -30,7 +29,22 @@
     </header>
 
     <main>
-        <table id="content"></table>
+        <form>
+            <label for="searchEng">Search</label>
+            <select name="searchEng" id="searchEng">
+                <option value="">---Select a User---</option>
+            </select>
+            <input type="button" value="Enter" id="searchBtn">
+        </form>
+        <table id="content">
+               
+            
+        </table>
+      
+
+
+
+
     </main>
     <div class="profile">
         <!-- Top right corner stuff -->
