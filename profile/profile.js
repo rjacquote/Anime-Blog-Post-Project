@@ -3,11 +3,11 @@ const postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
 
 let userPost = document.querySelector('#postBtn');
 console.log(loginData.token)
-const auth = {
+const options = {
     method: "GET",
     headers: {
         Authorization: `Bearer ${loginData.token}`,
-    },
+    }
 };
 let postJSON;
 
@@ -19,16 +19,10 @@ userPost.onclick = function sendPost() {
     }
     else {
 
-        postJSON = {
-            "text": postText
-        }
-
-        console.log(postJSON);
-
-        fetch(postsEnd, auth, {
-            method: `POST \ ${postsEnd}`,
-            body: JSON.stringify(postJSON),
-            headers: { "accept": "application/json","Authorization": `${auth}`, "Content-type": "application/json" }
+        fetch(postsEnd, options, {
+            method: "POST",
+            headers: { "Authorization":`Bearer ${loginData.token}`,"Content-type": "application/json" },
+            body: JSON.stringify({ text : `${postText}`})
         })
             .then(response => response.json())
             .then(data => console.log(data))
@@ -38,8 +32,7 @@ userPost.onclick = function sendPost() {
         // .then(response => response.json())
         // .then(data => data)
         // .catch(err => console.log(err));
-        postText = "";
-        console.log(postText);
+        
     }
 
 }
@@ -76,7 +69,7 @@ function userPosts() {
 
     let showPost = document.getElementById('showPosts');
 
-    fetch(`${postsEnd}?username=${loginData.username}`, auth)
+    fetch(`${postsEnd}?username=${loginData.username}`, options)
         .then(response => response.json())
         .then(data => {
 
