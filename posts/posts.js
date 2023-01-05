@@ -75,7 +75,7 @@ console.log(loginData.token)
             <br>
 
             <div>
-            <span id="likes"></span>
+            <span id="ltikes"></span>
             <input type="button" value="Dislike" id="dislikesBtn"  >
             </div>
             <br>
@@ -87,7 +87,7 @@ console.log(loginData.token)
             `;
             // console.log(postId)
   
-   
+            let postIds = document.getElementById('postIds');
          
     }
 
@@ -99,59 +99,9 @@ console.log(loginData.token)
     }
     conetentDisplay();
 
-//  })
-//   I need to put my likes and search in another function (no nesting)!!!!!!
-    // search 
- /* Kevin said do a fetch of usernames and create a dropdown 
-            that will be option to filter through posts
-            
-            the way we were doing it was to complicated for this project (don't have the time)
 
-    Here is his example code 
-    fetch(api + `/api/posts/?username=${chosenUserName}`, options)
-            .then(response => response.json())
-            .then(posts => { console.log(posts) })
-
-            */
-
-    // event listener 
-  
-    // likes and dislikes
-
-    function incrementLikes(){
-
-        console.log('yup')
-
-
-        let letSee = document.getElementById('likesBtn').value;
-        console.log(letSee)
-        
-            let numLikes = document.getElementById('likes');
-            likes ++;
-            numLikes.innerText = likes;
-            fetch(`https://microbloglite.herokuapp.com/api/likes`,{
-                method: 'POST',
-                body: JSON.stringify({
-                    postId: letSee
-                  }),
-                headers:{
-                    Authorization: `Bearer ${loginData.token}`,
-                    'Content-Type': "application/json"
-             
-                }
-            
-            })
-            .then(response => response.json())
-            .then(postsLikes => {
-                console.log(postsLikes)
-        
-            })
-       
-     
 
       
-    }
-
 
     // let letSee = document.getElementById('likesBtn').value = postId;
     // console.log(letSee)
@@ -175,17 +125,19 @@ console.log(loginData.token)
   
     // likes and dislikes
         //dom nodes
-            
-            
-          
+
+            // let numLikes = document.getElementById('likes');
+            // likes ++;
+            // numLikes.innerText = likes;
+    
     function incrementLikes(){
 
         console.log('yup')
   
-        let postIds = document.getElementById('postIds');
+     
         console.log( postIds)
         // let letSee = document.getElementById('likeBtn').value;
-        let letSee = '63b1c06b3c39b6c11b3027fa'
+        let letSee = '63b1c37d3c39b6c11b302872'
             fetch(likeEnd,{
                 method: 'POST',
                 body: JSON.stringify({
@@ -211,6 +163,7 @@ console.log(loginData.token)
         
     }
     function getLikes (){
+        let numLikes = document.getElementById('likes');
         fetch(postsEnd,{
             method: 'GET',
             headers: {
@@ -219,15 +172,16 @@ console.log(loginData.token)
         })
         .then(response => response.json())
         .then(conLikes => {
-            console.log(conLikes.likes)
-            let numLikes = document.getElementById('likes');
-            for (let i = 0; i < conLikes.length; i++) {
-          
-                let newLikes = conLikes[i].likes.length;
-                newLikes ++;
-                 numLikes.innerHTML += newLikes;
-            }
-          
+            console.log(conLikes)
+         
+            conLikes.filter((kk) =>{
+                console.log(kk.likes)
+                let lenLikes = kk.likes.length;
+                let addLikes = Number(lenLikes+1);
+                console.log(addLikes)
+                numLikes.appendChild(addLikes)
+            })
+       
         })
     }
 
@@ -261,7 +215,7 @@ searchDropdown()
 
             tableEle.replaceChildren();
        
-            fetch(`https://microbloglite.herokuapp.com/api/posts/?${searchEng.value}`,{
+            fetch(`https://microbloglite.herokuapp.com/api/posts/?username=${searchEng.value}`,{
                 method: 'GET',
                 headers:{
                     Authorization: `Bearer ${loginData.token}`
@@ -269,65 +223,64 @@ searchDropdown()
             })
             .then(response => response.json())
             .then(posts =>{
-                console.log(posts)
-                
-           
-            posts.filter((post)=>{
-                          
-                if(searchEng.value === post.username){
-                  console.log(post)  
-            
-                        // console.log(post)
-                            
+
+                console.log(posts.length)
+                //display no post when if the user has no post 
+                if(!posts.length ){
+                    console.log('hey')
+                    tableEle.replaceChildren()
+                    tableEle.innerHTML = '<h3> No Posts</h3>'
+                }
+                else {
+                    tableEle.replaceChildren()
+                    posts.filter((post)=>{
+                                
                         
-                       
-                       
-                     tableEle.innerHTML += 
-                        `             
-                        <tr>
-                        <th>UserName</th>
-                        <th>Posts</th>
-                        <th>Time</th>
+                            console.log(post)
             
-                        </tr>
-                        <tr>
-                        <td>${post.username}</td>
-                        <td>${post.text}</td>
-                        <td>${post.createdAt}</td>
-                       
-                        <div>
-                        <span id="likes">${post.likes.length}</span>
-                        <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
-                      
-                        </div>
-                        <br>
-            
-                        <div>
-                        <span id="likes"></span>
-                        <input type="button" value="Dislike" id="dislikesBtn"  >
-                        </div>
-                        <br>
-            
-                        `;
+                                console.log(post)
+                                    
+                                
+                                tableEle.innerHTML += 
+                                `             
+                                <tr>
+                                <th>UserName</th>
+                                <th>Posts</th>
+                                <th>Time</th>
+                    
+                                </tr>
+                                <tr>
+                                <td>${post.username}</td>
+                                <td>${post.text}</td>
+                                <td>${post.createdAt}</td>
+                            
+                                <div>
+                                <span id="likes">${post.likes.length}</span>
+                                <button type = "submit" id="likesBtn" onclick= " incrementLikes()"> Like </button >
+                            
+                                </div>
+                                <br>
+                    
+                                <div>
+                                <span id="likes"></span>
+                                <input type="button" value="Dislike" id="dislikesBtn"  >
+                                </div>
+                                <br>
+                    
+                                `;
+                                
+                    
         
-                    }
-            });  
-         
-            //display no post when if the user has no post 
-        //   else  {
-        //        tableEle.innerHTML = `<h3>No Post</h3>`
-        //      tableEle.innerHTML = `<h3>No Post</h3>`
-        //   }
-       
+                
+                })
+        }
 
-
-        
               
                  
                     
 
             
-            })
+    })
             
     
          
