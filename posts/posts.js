@@ -39,7 +39,7 @@ console.log(loginData.token)
     .then(response =>response.json())
     .then(data =>{
         console.log('it works');
-        console.log(data);
+        // console.log(data);
 
         //Display Data 
         for (let i = 0; i < data.length; i++) {
@@ -64,11 +64,11 @@ console.log(loginData.token)
             <td>${data[i].text}</td>
             <td>${data[i].createdAt}</td>
 
-            <td id = "postIds">${postId} </td>
+            <p id= "postIds">${postId} </p>
          
             <div>
             <span id="likes">${likes}</span>
-            <button type = "submit" id="likesBtn" value ${postId} onclick= " incrementLikes()"> Like </button >
+            <button type = "submit" class="likesBtn" value = "${postId}" onclick= " incrementLikes()"> Like </button >
 
           
             </div>
@@ -87,18 +87,17 @@ console.log(loginData.token)
             `;
             // console.log(postId)
   
-            let postIds = document.getElementById('postIds');
+         
          
     }
 
 
-    
+    // return postId;
    
  })
-   
+
     }
     conetentDisplay();
-
 
 
       
@@ -126,18 +125,25 @@ console.log(loginData.token)
     // likes and dislikes
         //dom nodes
 
-            // let numLikes = document.getElementById('likes');
-            // likes ++;
-            // numLikes.innerText = likes;
+ 
     
     function incrementLikes(){
-
+        // console.log(postId)
         console.log('yup')
-  
-     
-        console.log( postIds)
-        // let letSee = document.getElementById('likeBtn').value;
-        let letSee = '63b1c37d3c39b6c11b302872'
+        // let postIds = document.getElementById('postIds');
+        // console.log( postIds)
+        let letSee = ""
+        console.log(letSee)
+        letSee = document.getElementById('postIds').textContent;
+        //  letSee = document.getElementsByTagName('p').length;
+         console.log(letSee)
+        // for (let i = 0; i < letSee.length; i++) {
+        //    let idk= document.getElementById('postIds').textContent;
+        //     return idk
+        // }
+        
+      console.log(idk)
+        // let letSee = '63b1c37d3c39b6c11b302872'
             fetch(likeEnd,{
                 method: 'POST',
                 body: JSON.stringify({
@@ -159,31 +165,32 @@ console.log(loginData.token)
             })
        
      
-
-        
-    }
-    function getLikes (){
-        let numLikes = document.getElementById('likes');
-        fetch(postsEnd,{
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${loginData.token}`
+            function getLikes (){
+                let numLikes = document.getElementById('likes');
+                fetch(postsEnd,{
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${loginData.token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(conLikes => {
+                    console.log(conLikes)
+                 
+                    conLikes.filter((kk) =>{
+                        console.log(kk.likes)
+                        
+                        let lenLikes = kk.likes.length;
+                        let addLikes = Number(lenLikes+1);
+                        console.log(addLikes)
+                        numLikes.appendChild(addLikes)
+                    })
+               
+                })
             }
-        })
-        .then(response => response.json())
-        .then(conLikes => {
-            console.log(conLikes)
-         
-            conLikes.filter((kk) =>{
-                console.log(kk.likes)
-                let lenLikes = kk.likes.length;
-                let addLikes = Number(lenLikes+1);
-                console.log(addLikes)
-                numLikes.appendChild(addLikes)
-            })
        
-        })
     }
+
 
  // search 
 
