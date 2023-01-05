@@ -228,7 +228,7 @@ searchDropdown()
                 if(!posts.length ){
                     console.log('hey')
                     tableEle.replaceChildren()
-                    tableEle.innerHTML = '<h3> No Post</h3>'
+                    tableEle.innerHTML = '<h3> No Posts</h3>'
                 }
                 else {
                     tableEle.replaceChildren()
