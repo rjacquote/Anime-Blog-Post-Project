@@ -28,7 +28,7 @@ console.log(loginData.token)
     // declaring endpoints 
     let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
     let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
-    let userEnd = 'https://microbloglite.herokuapp.com/api/users'
+    let userEnd = 'https://microbloglite.herokuapp.com/api/users';
     function conetentDisplay (){
     fetch(postsEnd,{
         method: 'GET',
