@@ -54,20 +54,15 @@ console.log(loginData.token)
             tableEle.innerHTML += `
             <div class"postArea">
             <tr class="postInfo">
-            <th>UserName</th>
-            <th>Posts</th>
-            <th>Time</th>
+            <th>${data[i].username}</th>
 
             </tr>
             <tr class="posts">
-            <td>${data[i].username}</td>
-            <td>${data[i].text}</td>
-            <td>${data[i].createdAt}</td>
+            <td class="postText">${data[i].text}</td>
+            <td class="postTime">${data[i].createdAt}</td>
 
-            <td id = "postIds">${postId} </td>
-         
             <div class="likeArea">
-            <span id="likes">${likes}</span>
+            <span id="likes" class="likeAmount">${likes}</span>
             <button type = "submit" id="likesBtn" value ${postId} onclick= " incrementLikes()" class="likeButton"><img class="likeIcon" src="../assets/like-temp.png"></button >
 
           
@@ -76,7 +71,7 @@ console.log(loginData.token)
 
             <div class="likeArea">
             <span id="likes"></span>
-            <input type="button" value="Dislike" id="dislikesBtn">
+            <button type = "submit" value="Dislike" id="dislikesBtn" class="dislikeBtn"><img class="dislikeIcon" src="../assets/dislike-temp.png"></button >
             </div>
             <br>
 

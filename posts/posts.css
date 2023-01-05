@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  rgb(16, 94, 104);
+    background-color:  rgb(9, 52, 54);
     text-align: center;
     box-shadow: 0px 10px 80px 0px rgb(8, 36, 3);
     animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 3s both;
@@ -15,7 +15,11 @@
 .postInfo{
     font-family: 'Times New Roman', Times, serif;
     display: block;
-    margin-left: 20%;
+    margin-left: 17%;
+    text-decoration: underline;
+    padding-left: 20px;
+    font-size: 20px;
+    animation: nameIntro 1.1s 5s both;
 }
 
 .posts{
@@ -26,39 +30,120 @@
     display: block;
     margin: 20px 0px;
     background-color: white;
-    margin-left: 20%;
+    margin-left: 25%;
+    width: 650px;
+    text-align: right;
+    animation: postIntro 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 4.5s both;
   }
+  .postText{
+    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+  font-size: 18px;
+  }
+  .postTime{
+  color: rgb(127, 127, 127);
+  font-size: 14px;
+  display: inline;
 
+    
+  }
+  
   .likeArea{
     display: block;
     margin-left: 20%;
+  }
+  .likeAmount{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    animation: likeIntro 0.01s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5.85s both;
+    opacity: 0;
+  }
+
+  .dislikeBtn{
+    background: transparent;
+    border: none !important;
+    animation: heartIntro 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) 5.5s both;
+    position: relative;
+    left: 2.7%;
   }
 body {
     max-width: 80%;
     margin-left: 10%;
     min-height: 750px;
     background: rgb(53,68,61);
-    background: linear-gradient(0deg, rgba(53,68,61,0.30885857761073177) 0%, rgba(125,141,133,0.9531162806919643) 1%, rgba(180,208,194,1) 99%, rgba(144,241,193,1) 100%);
+    background: linear-gradient(0deg, rgba(53,68,61,0.30885857761073177) 0%, rgba(108,124,88,0.8531162806919643) 5%, rgba(198,188,124,1) 68%, rgba(241,225,144,0.9) 99%, rgba(241,225,144,0.90) 100%);
 box-shadow: 0px 0px 80px 0px rgb(0, 0, 0);
-animation: pageload 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+animation: pageload 4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .likeButton{
     background: transparent;
     border: none !important;
+    animation: heartIntro 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000) 5.5s both;
 }
 .likeIcon{
 width: 30px;
 filter: brightness(50%);
 }
+.dislikeIcon{
+  width: 30px;
+  filter: brightness(50%);
+  }
+  /* dropdown class is just dropdown */
+
+.dropdown{
+  position: absolute;
+  top: 50px;
+  left: 5%;
+  width: 15%;
+  display: block;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 1%;
+  outline: 4px rgb(0, 0, 0) double;
+  box-shadow: 0px 0px 7px 0px rgb(0, 0, 0);
+}
+
+.dropdown:hover{
+  outline: 4px rgb(82, 82, 82) double;
+  box-shadow: 0px 0px 10px 0px rgb(142, 242, 255)
+}
+
 .likeIcon:hover{
-    animation: heartBeat 0.5s ease-in-out infinite both;
-    filter: brightness(90%);
+    animation: heartBeat 1s ease-in-out infinite both;
+    filter: brightness(70%);
+    transform: scale(1.2);
 }
 .likeIcon:active{
     filter: brightness(100%);
     animation: heartStart 0.6s both;
 }
+.dislikeIcon:hover{
+  animation: disheartBeat 0.5s ease-in-out infinite both;
+  filter: brightness(30%);
+  transform: scale(1.2);
+}
+@keyframes pageload {
+  0% {
+    transform: scaleY(0);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  } 
+  30% {
+    transform: scaleY(0.045);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(0.01);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  }
 @keyframes tracking-in-contract {
     0% {
       letter-spacing: 1em;
@@ -73,17 +158,55 @@ filter: brightness(50%);
     }
 }
 @keyframes heartBeat {
-    0% {
-      transform: scale(1.05);
+    from {
+      transform: scale(1);
+      transform-origin: center center;
+      animation-timing-function: ease-out;
     }
-    50% {
-      transform: scale(1.1);
+    10% {
+      transform: scale(0.91);
+      animation-timing-function: ease-in;
+      filter: brightness(90%);
     }
-    100% {
-      transform: scale(1.05);
+    17% {
+      transform: scale(0.98);
+      animation-timing-function: ease-out;
+    }
+    33% {
+      transform: scale(0.87);
+      animation-timing-function: ease-in;
+      filter: brightness(100%);
+    }
+    45% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
     }
   }
-
+  @keyframes disheartBeat {
+    from {
+      transform: scale(1);
+      transform-origin: center center;
+      animation-timing-function: ease-out;
+    }
+    10% {
+      transform: scale(0.91);
+      animation-timing-function: ease-in;
+      filter: brightness(20%);
+    }
+    17% {
+      transform: scale(0.98);
+      animation-timing-function: ease-out;
+    }
+    33% {
+      transform: scale(0.87);
+      animation-timing-function: ease-in;
+      filter: brightness(10%);
+    }
+    45% {
+      transform: scale(1);
+      animation-timing-function: ease-out;
+    }
+  }
   @keyframes heartStart {
     0% {
       transform: scale3d(1, 1, 1);
@@ -105,6 +228,73 @@ filter: brightness(50%);
     }
     100% {
       transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes postIntro{
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes heartIntro {
+    0% {
+      transform: translateX(-1000px) rotate(-720deg);
+      filter: blur(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+      filter: blur(0);
+      opacity: 1;
+    }
+  }
+  @keyframes likeIntro {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+  @keyframes nameIntro{
+    0% {
+      transform: translateX(-600px);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      transform: translateX(0);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      transform: translateX(-68px);
+      animation-timing-function: ease-in;
+    }
+    72% {
+      transform: translateX(0);
+      animation-timing-function: ease-out;
+    }
+    81% {
+      transform: translateX(-28px);
+      animation-timing-function: ease-in;
+    }
+    90% {
+      transform: translateX(0);
+      animation-timing-function: ease-out;
+    }
+    95% {
+      transform: translateX(-8px);
+      animation-timing-function: ease-in;
+    }
+    100% {
+      transform: translateX(0);
+      animation-timing-function: ease-out;
     }
   }
   
