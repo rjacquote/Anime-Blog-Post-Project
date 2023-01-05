@@ -223,6 +223,7 @@ searchDropdown()
             })
             .then(response => response.json())
             .then(posts =>{
+
                 console.log(posts.length)
                 //display no post when if the user has no post 
                 if(!posts.length ){
@@ -273,6 +274,7 @@ searchDropdown()
                 
                 })
         }
+
               
                  
                     
@@ -281,6 +283,5 @@ searchDropdown()
     })
             
     
-    
+         
 }
-
