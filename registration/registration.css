@@ -9,14 +9,19 @@ header {
 }
 section {
     background: brown;
+
+    box-shadow: 3px 3px 4px 4px antiquewhite;
+
     color: aliceblue;
     font-size: 17px;
     text-align: center;
     opacity: 85%;
     border-radius: 15px;
-    width: 35%;
-     padding: 3px 0px 3px 10px; 
-    position: relative; left:443px; bottom: 100px;
+
+    width: 565px;
+    padding: 3px 3px 3px 5px; 
+    position: relative; left: 420px; bottom: 100px;
+
 }
 main {
     background: antiquewhite;
@@ -25,7 +30,7 @@ main {
     width: 400px;
     padding: 20px 25px 35px 20px;
     transform:translate(100%);
-    position: relative;bottom: 75px; left: 35px;}
+    position: relative;bottom: 75px; left: 45px;}
 
 .center h3 {
    text-align: center; 
@@ -102,6 +107,7 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background-color: rgb(111, 13, 13);
     border-color: rgb(238, 243, 90);
+
     transition: .5s;}
 
     .signupLink{
@@ -116,3 +122,4 @@ input[type="submit"]:hover{
     
     .signupLink a:hover{
         text-decoration: underline;}
+
