@@ -23,7 +23,7 @@ let tableEle2 = document.getElementById('content2');
     let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
     let userEnd = 'https://microbloglite.herokuapp.com/api/users';
 
-    function conetentDisplay (){
+    function contentDisplay (){
     fetch(postsEnd,{
         method: 'GET',
         headers: {
@@ -33,54 +33,6 @@ let tableEle2 = document.getElementById('content2');
     .then(response =>response.json())
     .then(data =>{
         console.log('it works');
-
-        //Display Data 
-        for (let i = 0; i < data.length; i++) {
-            // console.log('hey')
-            let postId =data[i]._id;
-            console.log(postId)
-            
-            let likes = data[i].likes.length;
-
-        
-
-            tableEle.innerHTML += `
-
-            <div class"postArea">
-            <tr class="postInfo">
-            <th>${data[i].username}</th>
-
-            </tr>
-            <tr class="posts">
-            <td class="postText">${data[i].text}</td>
-            <td class="postTime">${data[i].createdAt}</td>
-
-            <div class="likeArea">
-            <span id="likes" class="likeAmount">${likes}</span>
-            <button type = "submit" id="likesBtn" value ${postId} onclick= " incrementLikes()" class="likeButton"><img class="likeIcon" src="../assets/like-temp.png"></button >
-
-
-          
-            </div>
-            <br>
-
-
-            <div class="likeArea">
-            <span id="likes"></span>
-            <button type = "submit" value="Dislike" id="dislikesBtn" class="dislikeBtn"><img class="dislikeIcon" src="../assets/dislike-temp.png"></button >
-            </div>
-            <br>
-
-
-            </tr>
-
-            </tr>
-            </div>
-            `;
-            // console.log(postId)
-    }
-
-
             //Display Data 
             data.filter((info)=>{
 
