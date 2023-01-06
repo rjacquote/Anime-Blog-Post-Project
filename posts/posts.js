@@ -40,23 +40,20 @@ let tableEle2 = document.getElementById('content2');
                 // console.log(likes)
 
                 tableEle.innerHTML += `
-            
-                <tr>
-                <th>UserName</th>
-                <th>Posts</th>
-                <th>Time</th>
+            <div class"postArea">
+                <tr class="postInfo">
+                <th>${info.username}</th>
 
                 </tr>
-                <tr>
-                <td>${info.username}</td>
-                <td>${info.text}</td>
-                <td>${info.createdAt}</td>
+                <tr class="posts">
+                <td class="postText">${info.text}</td>
+                <td class="postTime">${info.createdAt}</td>
 
                 <p id= "postIds"></p>
             
-                <div>
-                <p class="likes">${likes}</p>
-                <button type="submit" id="likesBtn"  onclick="incrementLikes('${info._id}')"> Like </button >
+                <div class="likeArea">
+                <p class="likeAmount">${likes}</p>
+                <button class="likeButton" type="submit" id="likesBtn"  onclick="incrementLikes('${info._id}')"><img class="likeIcon" src="../assets/like-temp.png"></button >
 
             
                 </div>
@@ -65,7 +62,7 @@ let tableEle2 = document.getElementById('content2');
 
                 <div>
                 <span id="dislikes"></span>
-                <button type="submit" id="dislikesBtn" onclick="deleteLikes('${info._id}')"> Dislike </button>
+                <button class="dislikeBtn" type="submit" id="dislikesBtn" onclick="deleteLikes('${info._id}')"> <img class="dislikeIcon" src="../assets/dislike-temp.png"> </button>
                 
                 </div>
                 <br>
@@ -74,7 +71,8 @@ let tableEle2 = document.getElementById('content2');
 
 
                 </tr>
-            
+                
+              </div>
                 `;
        
     
@@ -257,8 +255,7 @@ searchDropdown()
                                 <span id="likes"></span>
                                 <input type="button" value="Dislike" id="dislikesBtn"  >
                                 </div>
-                                <br>
-                    
+                                <br>                
                                 `;
                                 
                     
