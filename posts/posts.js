@@ -4,154 +4,102 @@
 // token 
 
 let loginData =JSON.parse(window.localStorage.getItem('login-data'));
+console.log(loginData.token)
 // dom nodes 
 let searchBtn =  document.getElementById('searchBtn');
 let searchEng = document.getElementById('searchEng');
+console.log(searchEng)
 let tableEle = document.getElementById('content');
 let tableEle2 = document.getElementById('content2');
-
-
-
-
-console.log(searchEng)
-
-console.log(loginData.token)
-
-
-
-
+// let numLikes ;
 
 
 
 // fetches 
 
-    // declaring endpoints 
-    let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
-    let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
-    let userEnd = 'https://microbloglite.herokuapp.com/api/users'
-    function conetentDisplay (){
-    fetch(postsEnd,{
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${loginData.token}`
-        }
-    })
-    .then(response =>response.json())
-    .then(data =>{
-        console.log('it works');
-        // console.log(data);
+        // declaring endpoints 
+        let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
+        let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
+        let userEnd = 'https://microbloglite.herokuapp.com/api/users';
 
-        //Display Data 
-        for (let i = 0; i < data.length; i++) {
-            // console.log('hey')
-            let postId =data[i]._id;
-            console.log(postId)
+    function contentDisplay (){
+        fetch(postsEnd,{
+            method: 'GET',
+            headers: {
+            'Authorization': `Bearer ${loginData.token}`
+            }
+        })
+        .then(response =>response.json())
+        .then(data =>{
+            console.log('it works');
+            // console.log(data);
+
+            //Display Data 
+            data.filter((info)=>{
+
+                let likes = info.likes.length;
+                // console.log(likes)
+
+                tableEle.innerHTML += `
             
-            let likes = data[i].likes.length;
+                <tr>
+                <th>UserName</th>
+                <th>Posts</th>
+                <th>Time</th>
 
-        
+                </tr>
+                <tr>
+                <td>${info.username}</td>
+                <td>${info.text}</td>
+                <td>${info.createdAt}</td>
 
-            tableEle.innerHTML += `
-         
-            <tr>
-            <th>UserName</th>
-            <th>Posts</th>
-            <th>Time</th>
-
-            </tr>
-            <tr>
-            <td>${data[i].username}</td>
-            <td>${data[i].text}</td>
-            <td>${data[i].createdAt}</td>
-
-            <p id= "postIds">${postId} </p>
-         
-            <div>
-            <span id="likes">${likes}</span>
-            <button type = "submit" class="likesBtn" value = "${postId}" onclick= " incrementLikes()"> Like </button >
-
-          
-            </div>
-            <br>
-
-            <div>
-            <span id="ltikes"></span>
-            <input type="button" value="Dislike" id="dislikesBtn"  >
-            </div>
-            <br>
-
-            </tr>
-
-            </tr>
-         
-            `;
-            // console.log(postId)
-  
-         
-         
-    }
-
-
-    // return postId;
-   
- })
-
-    }
-    conetentDisplay();
-
-
-      
-
-    // let letSee = document.getElementById('likesBtn').value = postId;
-    // console.log(letSee)
-
-//  })
-//   I need to put my likes and search in another function (no nesting)!!!!!!
-    // search 
- /* Kevin said do a fetch of usernames and create a dropdown 
-            that will be option to filter through posts
+                <p id= "postIds"></p>
             
-            the way we were doing it was to complicated for this project (don't have the time)
+                <div>
+                <p class="likes">${likes}</p>
+                <button type="submit" id="likesBtn"  onclick="incrementLikes('${info._id}')"> Like </button >
 
-    Here is his example code 
-    fetch(api + `/api/posts/?username=${chosenUserName}`, options)
-            .then(response => response.json())
-            .then(posts => { console.log(posts) })
+            
+                </div>
+                <br>
 
-            */
+                <div>
+                <span id="dislikes"></span>
+                <button type="submit" id="dislikesBtn" onclick="deleteLikes('${info._id}')"> Dislike </button>
+                
+                </div>
+                <br>
 
-    // event listener 
-  
-    // likes and dislikes
-        //dom nodes
+                </tr>
 
- 
+                </tr>
+            
+                `;
+       
     
-    function incrementLikes(){
-        // console.log(postId)
-        console.log('yup')
-        // let postIds = document.getElementById('postIds');
-        // console.log( postIds)
-        let letSee = ""
-        console.log(letSee)
-        letSee = document.getElementById('postIds').textContent;
-        //  letSee = document.getElementsByTagName('p').length;
-         console.log(letSee)
-        // for (let i = 0; i < letSee.length; i++) {
-        //    let idk= document.getElementById('postIds').textContent;
-        //     return idk
-        // }
+            
+            })
+
         
-      console.log(idk)
-        // let letSee = '63b1c37d3c39b6c11b302872'
+    
+        })
+
+     }
+    contentDisplay();
+
+    // likes and dislikes
+
+    function incrementLikes(postId){
+        console.log(postId)
+        console.log('yup')
             fetch(likeEnd,{
                 method: 'POST',
                 body: JSON.stringify({
-                    postId: letSee
+                    postId: postId
                   }),
                 headers:{
-                    Authorization: `Bearer ${loginData.token}`,
-                    'Content-Type': "application/json"
+                    'Authorization': `Bearer ${loginData.token}`,
+                    'Content-Type': 'application/json'
              
                 }
             
@@ -159,38 +107,71 @@ console.log(loginData.token)
             .then(response => response.json())
             .then(postsLikes => {
                 console.log(postsLikes)
-            
-              getLikes()
+              getLikes(postId);
 
             })
-       
+            .catch (() => {
+                
+             })
      
-            function getLikes (){
-                let numLikes = document.getElementById('likes');
-                fetch(postsEnd,{
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${loginData.token}`
-                    }
-                })
-                .then(response => response.json())
-                .then(conLikes => {
-                    console.log(conLikes)
-                 
-                    conLikes.filter((kk) =>{
-                        console.log(kk.likes)
-                        
-                        let lenLikes = kk.likes.length;
-                        let addLikes = Number(lenLikes+1);
-                        console.log(addLikes)
-                        numLikes.appendChild(addLikes)
-                    })
-               
-                })
-            }
-       
+
     }
 
+    function getLikes (postId){
+        console.log(likes)    
+   
+        // numLikestag.repl();
+        fetch(`https://microbloglite.herokuapp.com/api/posts/${postId}`,{
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${loginData.token}`
+            }
+        })
+        .then(response => response.json())
+        .then(conLikes => {
+            console.log(conLikes)
+            let numLikes = document.getElementById('likes').textContent;
+            let numLikestag = document.getElementsByClassName('likes')
+            // numLikes.replace();
+           let listLikes = conLikes.likes
+
+                
+                console.log(numLikes)
+                console.log(listLikes)
+      
+                let lenLikes =parseInt(listLikes.length);
+                console.log(lenLikes)
+                let addLikes =lenLikes+1;
+                console.log(addLikes)
+               numLikes= addLikes;
+               console.log(numLikestag)
+               numLikestag.replaceChildren(`${numLikes}`);
+               console.log(numLikes)
+               
+            
+           
+         
+       
+          
+                
+         
+       
+        })
+    }
+    function deleteLikes(postId){
+        fetch(`https://microbloglite.herokuapp.com/api/posts/${postId}`,{
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${loginData.token}`
+            }
+        })
+        .then(response => response.json())
+        .then(deleteLikes => {
+            console.log(deleteLikes)
+            // deleteLikes(postId);
+
+        })
+    }
 
  // search 
 
