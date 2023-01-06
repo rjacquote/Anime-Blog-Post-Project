@@ -1,6 +1,6 @@
 window.onload = function (){
 const api = "https://microbloglite.herokuapp.com/api/users"
-let form = document.getElementById('registerForm');
+const form = document.querySelector('form');
 
 let fullName = document.getElementById('fullName');
 let userName = document.getElementById('username');
@@ -13,11 +13,13 @@ let formJSON;
 
 
 form.onsubmit = function getRegInfo(evt) {
+    
+    evt.preventDefault();
+
     if (confirmPassword.value != password.value) {
         alert('Error. Password entries do not match.');
     }
     else {
-        evt.preventDefault();
         
         formJSON = {
             "fullName": fullName.value,
@@ -28,10 +30,10 @@ form.onsubmit = function getRegInfo(evt) {
         fetch(api, {
             method: "POST",
             body: JSON.stringify(formJSON),
-            headers: { "Content-type": "application/json; charset= UTF-8" }
+            headers: { "Content-Type": "application/json; charset=UTF-8" }
         })
         .then(response => response.json())
-        .then(response => {location.href = "../index.html"})
+        .then(_payload => {location.href = "../index.html"})
         .catch(err => console.log(err));
         // location.href="../index.html";
     }
