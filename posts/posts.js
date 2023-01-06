@@ -136,18 +136,18 @@ let tableEle2 = document.getElementById('content2');
            let listLikes = conLikes.likes
 
                 
-                console.log(numLikes)
-                console.log(listLikes)
-      
-                let lenLikes =parseInt(listLikes.length);
-                console.log(lenLikes)
-                let addLikes =lenLikes+1;
-                console.log(addLikes)
-               numLikes= addLikes;
-               console.log(numLikestag)
-               numLikestag.replaceChildren(`${numLikes}`);
-               console.log(numLikes)
-               
+           console.log(numLikes)
+           console.log(listLikes)
+ 
+           let lenLikes =parseInt(listLikes.length);
+           console.log(lenLikes)
+           let addLikes =lenLikes+1;
+           console.log(addLikes)
+          numLikes= addLikes;
+          console.log(numLikestag)
+          numLikestag.replaceChildren(`${numLikes}`);
+          console.log(numLikes)
+
             
            
          
@@ -159,7 +159,7 @@ let tableEle2 = document.getElementById('content2');
         })
     }
     function deleteLikes(postId){
-        fetch(`https://microbloglite.herokuapp.com/api/posts/${postId}`,{
+        fetch(`https://microbloglite.herokuapp.com/api/likes/${postId}`,{
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${loginData.token}`
