@@ -17,22 +17,69 @@ let tableEle2 = document.getElementById('content2');
 
 // fetches 
 
-        // declaring endpoints 
-        let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
-        let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
-        let userEnd = 'https://microbloglite.herokuapp.com/api/users';
 
-    function contentDisplay (){
-        fetch(postsEnd,{
-            method: 'GET',
-            headers: {
-            'Authorization': `Bearer ${loginData.token}`
-            }
-        })
-        .then(response =>response.json())
-        .then(data =>{
-            console.log('it works');
-            // console.log(data);
+    // declaring endpoints 
+    let postsEnd = 'https://microbloglite.herokuapp.com/api/posts';
+    let likeEnd = 'https://microbloglite.herokuapp.com/api/likes';
+    let userEnd = 'https://microbloglite.herokuapp.com/api/users';
+
+    function conetentDisplay (){
+    fetch(postsEnd,{
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${loginData.token}`
+        }
+    })
+    .then(response =>response.json())
+    .then(data =>{
+        console.log('it works');
+
+        //Display Data 
+        for (let i = 0; i < data.length; i++) {
+            // console.log('hey')
+            let postId =data[i]._id;
+            console.log(postId)
+            
+            let likes = data[i].likes.length;
+
+        
+
+            tableEle.innerHTML += `
+
+            <div class"postArea">
+            <tr class="postInfo">
+            <th>${data[i].username}</th>
+
+            </tr>
+            <tr class="posts">
+            <td class="postText">${data[i].text}</td>
+            <td class="postTime">${data[i].createdAt}</td>
+
+            <div class="likeArea">
+            <span id="likes" class="likeAmount">${likes}</span>
+            <button type = "submit" id="likesBtn" value ${postId} onclick= " incrementLikes()" class="likeButton"><img class="likeIcon" src="../assets/like-temp.png"></button >
+
+
+          
+            </div>
+            <br>
+
+
+            <div class="likeArea">
+            <span id="likes"></span>
+            <button type = "submit" value="Dislike" id="dislikesBtn" class="dislikeBtn"><img class="dislikeIcon" src="../assets/dislike-temp.png"></button >
+            </div>
+            <br>
+
+
+            </tr>
+
+            </tr>
+            </div>
+            `;
+            // console.log(postId)
+    }
+
 
             //Display Data 
             data.filter((info)=>{
@@ -63,6 +110,7 @@ let tableEle2 = document.getElementById('content2');
                 </div>
                 <br>
 
+
                 <div>
                 <span id="dislikes"></span>
                 <button type="submit" id="dislikesBtn" onclick="deleteLikes('${info._id}')"> Dislike </button>
@@ -71,6 +119,7 @@ let tableEle2 = document.getElementById('content2');
                 <br>
 
                 </tr>
+
 
                 </tr>
             
@@ -92,6 +141,7 @@ let tableEle2 = document.getElementById('content2');
     function incrementLikes(postId){
         console.log(postId)
         console.log('yup')
+
             fetch(likeEnd,{
                 method: 'POST',
                 body: JSON.stringify({
@@ -115,6 +165,7 @@ let tableEle2 = document.getElementById('content2');
              })
      
 
+
     }
 
     function getLikes (postId){
@@ -125,7 +176,7 @@ let tableEle2 = document.getElementById('content2');
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${loginData.token}`
-            }
+                }
         })
         .then(response => response.json())
         .then(conLikes => {
@@ -180,6 +231,7 @@ let tableEle2 = document.getElementById('content2');
         method: 'GET',
         headers:{
             Authorization: `Bearer ${loginData.token}`
+
         }
     })
     .then(response => response.json())
@@ -211,12 +263,13 @@ searchDropdown()
             })
             .then(response => response.json())
             .then(posts =>{
+
                 console.log(posts.length)
                 //display no post when if the user has no post 
                 if(!posts.length ){
                     console.log('hey')
                     tableEle.replaceChildren()
-                    tableEle.innerHTML = '<h3> No Post</h3>'
+                    tableEle.innerHTML = '<h3> No Posts</h3>'
                 }
                 else {
                     tableEle.replaceChildren()
@@ -260,15 +313,17 @@ searchDropdown()
         
                 
                 })
+
         }
+
               
                  
                     
 
             
     })
+
             
     
-    
+         
 }
-

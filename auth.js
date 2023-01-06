@@ -27,7 +27,7 @@ function isLoggedIn () {
 // you may need to write.
 function login (loginData) {
     // POST /auth/login
-    const options = { 
+    const options = {
         method: "POST",
         headers: {
             // This header specifies the type of content we're sending.
@@ -42,7 +42,7 @@ function login (loginData) {
         .then(response => response.json())
         .then(loginData => {
             window.localStorage.setItem("login-data", JSON.stringify(loginData));
-            window.location.assign("profile/index.html");  // redirect
+            window.location.assign("posts/index.html");  // redirect
         });
 }
 
@@ -55,9 +55,9 @@ function logout () {
     const loginData = getLoginData();
 
     // GET /auth/logout
-    const options = { 
+    const options = {
         method: "GET",
-        headers: { 
+        headers: {
             // This header is how we authenticate our user with the
             // server for any API requests which require the user
             // to be logged-in in order to have access.

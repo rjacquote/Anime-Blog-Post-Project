@@ -9,7 +9,7 @@
     
 
    <link rel="stylesheet" href="registration.css">
-   <script src="auth.js"></script>
+   <script src="../auth.js"></script>
     <script>
         if (isLoggedIn() === true) window.location.replace("posts/index.html");
     </script>
@@ -21,7 +21,9 @@
 </header>
     
 <section>
-    <h2>Please fill out the registration form to become a member</h2>
+
+    <h2>Please fill out the registration form to become a member TODAY</h2>
+
 </section>
         
 <main class="center">
@@ -58,9 +60,10 @@
         </div>
     
     <!-- submit button -->
-        <div>
-            <input type="submit" value="Submit" id="submitBtn">
-        </div>
+
+        <div><input type="submit" value="Submit" id="submitBtn"></div>
+        <div class="signupLink">
+            Already a member? <a href="index.html">Sign In</a>
 
 </form>
     

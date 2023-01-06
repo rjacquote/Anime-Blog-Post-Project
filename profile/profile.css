@@ -1,16 +1,15 @@
 .username {
     font-family:'Times New Roman', Times, serif ;
-    color: rgb(225, 164, 12);
+    color: rgb(207, 226, 230);
     display: flex;
     justify-content: center;
     align-items: center;
     background-color:  #052509;
     text-align: center;
     box-shadow: 0px 10px 80px 0px rgb(8, 36, 3);
-    animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5.2s both;
-    width: 83%;
+    animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 3s both;
+    width: 100%;
 }
-
 .postBtn {
     display: block;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -22,63 +21,10 @@
     height: 50px;
     font-size: 20px;
     border-radius: 1%;
-    outline: 4px rgb(225, 164, 12) double;
-    box-shadow: 0px 0px 7px 0px rgb(0, 0, 0);
-    
-}
-
-.profile {
-    column-count: 4;
-    position: absolute;
-    right: 10%;
-    top: 0;
-    background: url(background-test.png);
-    width: 200px;
-    outline: 5px rgb(255, 195, 43) double;
-    border-radius: 1%;
-    box-shadow: 0px 0px 30px 0px rgb(0, 0, 0);
-    animation-duration: 6s;
-    animation-name: bouncein2;
-    animation-delay: 5;
-}
-
-.profilePicBtn {
-    background: transparent;
-    border: none !important;
-    display: block;
-    margin-left: 20px;
-}
-
-.profilePicture {
-    width: 150px;
-    height: 150px;
-    margin-top: 20px;
-    border-radius: 50%;
-    outline: 4px rgb(43, 26, 10) double;
+    outline: 4px rgb(27, 48, 24) double;
     box-shadow: 0px 0px 7px 0px rgb(0, 0, 0);
 }
 
-.profileBtns {
-    align-items: flex-end;
-    padding-top: 200px;
-    width: 100px;
-
-}
-
-.logBtn {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 600;
-    color: rgb(238, 250, 255);
-    background-color: rgb(5, 36, 9);
-    padding: 5px;
-    width: 100px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-radius: 1%;
-    outline: 4px rgb(43, 26, 10) double;
-    box-shadow: 0px 0px 7px 0px rgb(0, 0, 0);
-}
 .profilePost{
     margin-left: 5%;
 }
@@ -90,12 +36,12 @@ h2{
     font-family: 'Times New Roman', Times, serif;
     min-height:300px;
     width: 30%;
-    outline: 5px rgb(225, 164, 12) double;
+    outline: 5px rgb(27, 48, 24) double;
     border-radius: 1%;
     box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
 }
 .postMake{
-  animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+  animation: slide-in-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
 }
 .userPosts{
   font-family: 'Times New Roman', Times, serif;
@@ -104,10 +50,10 @@ h2{
   position: relative;
   left: 40%;
   margin-top: -50px;
-  animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3.1s both;
+  animation: slide-in-right 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.1s both;
 }
 .postHeader{
-  outline: 5px rgb(225, 164, 12) double;
+  outline: 5px rgb(27, 48, 24) double;
   box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
   background-color: #CAC58D;
   margin-bottom: 20px;
@@ -116,147 +62,93 @@ h2{
   position: relative;
   left: 35%;
   top:-5%;
-  animation: puff-in-ver 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 5s both;
+  animation: puff-in-ver 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) 2.9s both;
 }
 .posts{
   font-family: 'Times New Roman', Times, serif;
-  outline: 10px rgb(195, 148, 5) double;
+  outline: 10px rgb(27, 48, 24) double;
   box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
   background-color: #F5F2CD;
   padding-top: 5px;
 }
 th{
   font-family: 'Times New Roman', Times, serif;
-  outline: 5px rgb(225, 164, 12) double;
-  box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+  outline: 5px rgb(27, 48, 24) double;
+  box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
   border-radius: 1%;
   display: block;
   margin: 50px 0px;
   background-color: white;
   margin-right: 30px;
+  padding: 5px 15px;
 }
 body {
     max-width: 80%;
     margin-left: 10%;
     min-height: 750px;
-    background: -moz-linear-gradient(270deg, rgba(225,219,137,1) 0%, rgba(51,71,50,1) 100%);
-background: -webkit-linear-gradient(270deg, rgba(225,219,137,1) 0%, rgba(51,71,50,1) 100%);
-background: -o-linear-gradient(270deg, rgba(225,219,137,1) 0%, rgba(51, 71, 50, 0.914) 100%);
-background: -ms-linear-gradient(270deg, rgba(225,219,137,1) 0%, rgba(51,71,50,0.866) 100%);
-background: linear-gradient(180deg, rgba(225,219,137,1) 0%, rgba(51, 71, 50, 0.703) 100%);
-box-shadow: 0px 0px 80px 0px rgb(0, 0, 0);
-    animation-duration: 3s;
-    animation-name: bouncein;
-    padding-bottom: 20%;
+    background: rgb(53,68,61);
+    background: linear-gradient(0deg, rgba(53,68,61,0.30885857761073177) 0%, rgba(108,124,88,0.8531162806919643) 5%, rgba(198,188,124,0.9) 68%, rgba(241,225,144,0.9) 99%, rgba(241,225,144,0.9) 100%);
+    animation: pageload 10s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-html{
-    background-image: linear-gradient(rgba(.5, .5, .5, .5), rgba(0.5, 0.5, 0.5, 0.5)), url(https://wallpaperaccess.com/full/2137804.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.btnHighlight:hover{
-    color: gold;
-    outline: 4px rgb(87, 255, 99) double;
-    box-shadow: 0px 0px 40px 0px rgb(87, 255, 99), inset 0 0 10px rgb(87, 255, 99);
-}
-.profilePicture:hover{
-    outline: 4px double rgb(87, 255, 99) ;
-    box-shadow: 0px 0px 80px 0px rgb(87, 255, 99),  inset 0 0 20px rgb(87, 255, 99);
-}
-
-
-@keyframes bouncein {
-
+@keyframes pageload {
     0% {
-      transform: translateY(-800px);
-      opacity: 0%;
+      transform: scaleY(0);
+      transform-origin: 100% 0%;
+      opacity: 1;
     }
-    10% {
-        transform: translateY(-600px);
-      }
-      40% {
-        transform: translateY(-650px);
-      }
-      50%{
-        transform: translateY(100px);
-      }
-      70%{
-        transform: translateY(-50px);
-      }
+    30% {
+      transform: scaleY(1);
+      transform-origin: 100% 0%;
+      opacity: 1;
+    }
     100% {
-      transform: translateY(0px);
-      opacity: 100%;
+      }
+  } 
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
     }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-right {
+    0% {
+      transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+      transform: translateY(-250px);
+    }
+  }
+  @keyframes puff-in-ver {
+    0% {
+      transform: scaleY(3);
+      filter: blur(6px);
+      opacity: 0;
+    }
+    100% {
+      transform: scaleY(1);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-contract {
+    0% {
+      letter-spacing: 1em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+  }
   
-}
-
-@keyframes bouncein2 {
-
-    0% {
-      transform: translateY(-800px);
-    }
-    10% {
-        transform: translateY(-600px);
-      }
-      70% {
-        transform: translateY(-650px);
-      }
-      80%{
-        transform: translateY(100px);
-      }
-      90%{
-        transform: translateY(-50px);
-      }
-    100% {
-      transform: translateY(0px);
-    }
-}
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-    transform: translateY(-250px);
-  }
-}
-@keyframes puff-in-ver {
-  0% {
-    transform: scaleY(3);
-    filter: blur(6px);
-    opacity: 0;
-  }
-  100% {
-    transform: scaleY(1);
-    filter: blur(0px);
-    opacity: 1;
-  }
-}
-@keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
-  }
-}
